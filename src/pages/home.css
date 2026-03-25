@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2e2e2e;
+    gap: 30px;
+    color: white;
+}
+
+.hero-title{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(194, 194, 194, 0.705);
+    max-height: 500px;
+    width: 350px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: inset 1px 1px 1px ;
+}
+
+.card-image{
+    height: 350px;
+    margin-bottom: 4px;
+    filter: grayscale(100%) brightness(0);
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
