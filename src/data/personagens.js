@@ -1,5 +1,3 @@
-import Policial from "../assets/policial.png";
-
 
 var personagens = [
     {
