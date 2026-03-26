@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./home.css";
-
 import personagens from "../data/personagens";
 
 export default function Home() {
