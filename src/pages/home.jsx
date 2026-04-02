@@ -2,11 +2,25 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import personagens from "../data/personagens";
 
-export default function Home() {
+export default function Home({favoritos}) {
+  
   return (
     <>
       <div className="container">
-        <h1>Escolha Seu Personagem</h1>
+    <h1>Escolha Seu Personagem</h1>
+
+          {favoritos.length > 1 ? (
+          <div className="favorito-atual">
+          <p>Seus personagens favoritos são: {favoritos.map(item => item.nome).join(", ")}
+          </p>
+          </div>
+          ) : favoritos.length === 1 ? (
+            <div className="favorito-atual">
+          <p>Seu personagem favorito é: {favoritos.map(item => item.nome).join(", ")}
+          </p>
+          </div>
+          ): null} 
+   
 
         <div className="card-container">
           <Link className="hero-title" to={`/personagem/${personagens[0].slug}`}>
