@@ -4,14 +4,19 @@ import "./personagem.css";
 import personagens from "../data/personagens";
 
 
-export default function Personagem() {
+export default function Personagem({adicionarFavorito, removerFavorito, favoritos}) {
   const { id } = useParams();
 
+  
 
   var personagem = personagens.find((item) => item.slug === id);
     if (!personagem) {
     return <h1>Personagem não encontrado</h1>;
     }
+
+    const ehFavorito = favoritos.some((f) => f.id === personagem.id)
+
+
   return (
     <>
       <div
@@ -23,10 +28,27 @@ export default function Personagem() {
           <p className="personagem-detalhe">{personagem.detalhe}</p>
 
           <img className="personagem-img" src={personagem.imagem} />
-          <h2 className="personagem-frase">"{personagem.frase}" - {personagem.fraseAutor}</h2><br />
+          <h2 className="personagem-frase">"{personagem.frase}" - {personagem.fraseAutor}</h2>
+          
+          <div className="botoes">
+            
+           <button className="botao-favoritar" onClick={() => adicionarFavorito(personagem)}>
+            {ehFavorito ? ("⭐ Já favoritado"): "Favoritar"}
+          </button>
+            
+            {ehFavorito && (
+              <button className="botao-remover" onClick={() => removerFavorito(personagem)}>
+            ❌ Desfavoritar
+          </button>
+            )
+          }
+            </div>
+
           <Link className="botao-voltar" to="/">
             Voltar a página Inicial
           </Link>
+         
+          
         </div>
       </div>
     </>
